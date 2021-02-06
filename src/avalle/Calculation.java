@@ -1,5 +1,5 @@
 package avalle;
-
+// it will be used to save the calculations in an array.
 public class Calculation {
     private int num1;
     private int num2;

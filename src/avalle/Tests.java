@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Tests {
 
+    // will create a new calculation set the num 1 and 2 then will do a sum to assert if the result is equal to the expected
     @Test
     @DisplayName("Test 1 - Test Sum AssertEquals")
     void testSumAssertEquals(){
@@ -17,18 +18,21 @@ public class Tests {
         calculation.setResult(Calculator.doSum(calculation));
         assertEquals(3,calculation.getResult(),"It should return a 3");
 
+
     }
 
+    // will test a subtraction with a no real result
     @Test
-    @DisplayName("Test 2 - Test Subtraction AssertTrue")
-    void testSubtractionAssertTrue(){
+    @DisplayName("Test 2 - Test Subtraction assertNotEquals")
+    void testSubtractionAssertNotEquals(){
         Calculation calculation = new Calculation();
-        calculation.setNum1(2);
+        calculation.setNum1(1);
         calculation.setNum2(1);
         calculation.setResult(Calculator.doSubstraction(calculation));
-        assertEquals(1,calculation.getResult(),"It should return a 1");
+        assertNotEquals(1,calculation.getResult(),"It should return a 0");
 
     }
+    // will test the denominator and it will check if when it is 0 the validator return false
     @Test
     @DisplayName("Test 3 - test Division Denominator assertFalse")
     void testDivisionDenominatorAssertFalse(){
@@ -38,7 +42,7 @@ public class Tests {
         assertFalse(Validator.validateDenominator(calculation.getNum2()),"It should return false");
 
     }
-
+    // it test the ArrayList in the Calculator array. it will compare with a local array with the same objects.
     @Test
     @DisplayName("Test 4 - test the Memory Array assertArrayEquals")
     void testMemoryArrayAssertArrayEquals(){
@@ -68,6 +72,7 @@ public class Tests {
 
     }
 
+    // it will test that when the Calculator class is created, the array list is not null.
     @Test
     @DisplayName("Test 5 - test the Memory Array is created assertNotNull")
     void testMemoryAssertNotNull(){

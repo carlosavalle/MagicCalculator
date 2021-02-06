@@ -1,7 +1,6 @@
 package avalle;
 
-import java.sql.Array;
-import java.util.ArrayList;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -13,14 +12,18 @@ public class Main {
 
         int  operation = 0;
         Boolean loop = true;
+        // creates a new calculator object
         Calculator calculator = new Calculator();
 
         while (loop) {
             try {
+
+                // creates a new calculation object
                 Calculation calculation = new Calculation();
+
                 Scanner input = new Scanner( System.in );
 
-
+                //displays the differents calculator options
                 System.out.println("1- SUM");
                 System.out.println("2- SUBTRACTION");
                 System.out.println("3- MULTIPLICATION");
@@ -29,8 +32,10 @@ public class Main {
                 System.out.println("6- End");
                 System.out.println("Select a option\n");
 
+                // asks the user for the options.
                 operation = input.nextInt();
 
+                // if the user select any math operation, it will prompt for the numbers
                 if( operation < 5 ) {
 
                     System.out.print("Enter the first number: \n");
@@ -43,6 +48,7 @@ public class Main {
 
 
                 }
+                // will execute the operation according with the user request
                 switch (operation){
                     case 1:
                         calculation.setType(" + ");
@@ -79,7 +85,7 @@ public class Main {
                         System.out.println("Enter a valid option");
 
                 }
-
+                // it will save into the array and will show the result
                if(operation >= 1 && operation <=4){
                     calculator.addToMemory(calculation);
                    System.out.println("The result is: " + calculation.getResult());
@@ -89,7 +95,7 @@ public class Main {
 
                }
 
-
+            // will catch any error
             }catch (InputMismatchException ime) {
                 System.out.println("Please, enter a valid number \n");
             } catch (ArithmeticException e) {
@@ -101,6 +107,7 @@ public class Main {
 
             }
         }
+        // will display the results in the array.
     static void showResults(Calculator calculator){
      if(calculator.getMemory().size()>0) {
          System.out.println("Results \n");
